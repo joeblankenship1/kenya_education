@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Kenya Education - 2014</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <!-- loading Assembly CSS here -->
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
+    <!-- loading MapBox CSS here -->
+    <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <!-- loading custom CSS here -->
+    <link href='css/styles.css' rel='stylesheet' />
+
+</head>
+
+<body>
+    <div class='flex-parent viewport-full relative scroll-hidden'>
+        <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
+            <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
+                <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
+                    <!-- text here appears in the side pane -->
+                    <h1 class='txt-h1 mb6'>Kenya Education - Template</h1>
+                    <p>Feel free to read the lorem ipsum below if you will; the complete map product is coming very soon. :)</p>
+                    <h2 class='txt-xl mt18 mb12'>Template</h2>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
+                        at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
+                        nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
+                        et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                </div>
+                <footer class='px12 py12 bg-gray-faint txt-s'>
+                    <ul>
+                        <li>Explore the raw
+                            <a class='link' href='https://icta-kenyaopendata.opendata.arcgis.com/datasets/national-boys-and-girls-enrollments-per-class-for-primary-school-education' target="_blank">data</a>
+                        </li>
+                        <li>Map authored by
+                            <a class='link' href='https://thejoeblankenship.com/nmp_portfolio/' target="_blank">This guy...</a>
+                        </li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+        <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
+            <div id="map" class='viewport-twothirds viewport-full-ml'></div>
+            <!-- ui slider -->
+            <div id='slider' class='range w240 bg-white round-ml px12'>
+                <input type='range' />
+            </div>
+            <!-- legend -->
+            <div id='legend' class='bg-white round-ml px18 py12'>
+                <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
+                <div class='bg-blue h180 w240 mx-auto'></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- loading Assembly JS here -->
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
+    <!-- loading MapBox JS here -->
+    <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+    <!-- loading Omnivore JS here -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <!-- loading custom JS here -->
+    <script src='js/app.js'></script>
+
+</body>
+
+</html>

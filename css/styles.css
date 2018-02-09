@@ -1,0 +1,37 @@
+#map {
+    background: #448ee4;
+}
+
+h1 {
+    color: orange;
+}
+
+.txt-h1 {
+    font-size: 45px;
+    line-height: 54px;
+}
+
+.txt-xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+}
+
+.txt-l {
+    font-size: var(--font-size-l);
+    line-height: var(--line-height-l);
+}
+
+.txt-m {
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-m);
+}
+
+.txt-s {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-s);
+}
+
+.txt-xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
+}
