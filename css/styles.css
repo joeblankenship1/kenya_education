@@ -1,37 +1,32 @@
-#map {
-    background: #448ee4;
+/* custom CSS rules */
+body {
+    font-family: "Work Sans", sans-serif;
 }
 
-h1 {
-    color: orange;
+/* display none for layout but be careful of license restrictions */
+.mapbox-logo, .leaflet-control-attribution {
+    display: none;
 }
 
-.txt-h1 {
-    font-size: 45px;
-    line-height: 54px;
+.legend-large, .legend-small {
+    border-radius: 50%;
 }
 
-.txt-xl {
-    font-size: var(--font-size-xl);
-    line-height: var(--line-height-xl);
+hr.small, hr.large {
+    width: 83px;
+    position: absolute;
+    top: -8px;
+    left: 55px;
+    border: 1px dashed #ccc;
+    /* overwrite assembly.css rule */
+    margin-top: 8px;
+    /* overwrite assembly.css rule */
 }
 
-.txt-l {
-    font-size: var(--font-size-l);
-    line-height: var(--line-height-l);
+.boys {
+    color: #6E77B0;
 }
 
-.txt-m {
-    font-size: var(--font-size-m);
-    line-height: var(--line-height-m);
-}
-
-.txt-s {
-    font-size: var(--font-size-s);
-    line-height: var(--line-height-s);
-}
-
-.txt-xs {
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-xs);
+.girls {
+    color: #D96D02;
 }

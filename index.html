@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset=utf-8 />
     <title>Kenya Education - 2014</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
     <!-- loading Assembly CSS here -->
     <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet'>
     <!-- loading MapBox CSS here -->
     <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+    <!-- loading custom Google fonts here -->
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     <!-- loading custom CSS here -->
     <link href='css/styles.css' rel='stylesheet' />
 
@@ -16,42 +20,88 @@
 <body>
     <div class='flex-parent viewport-full relative scroll-hidden'>
         <div class='flex-child w-full w300-ml absolute static-ml left bottom'>
-            <div class='flex-parent flex-parent--column viewport-third h-full hmax-full bg-white py18 px12'>
-                <div class='flex-child flex-child--grow px12 py12 scroll-auto'>
-                    <!-- text here appears in the side pane -->
-                    <h1 class='txt-h1 mb6'>Kenya Education - Template</h1>
-                    <p>Feel free to read the lorem ipsum below if you will; the complete map product is coming very soon. :)</p>
-                    <h2 class='txt-xl mt18 mb12'>Template</h2>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est
-                        at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum
-                        nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus
-                        et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                </div>
-                <footer class='px12 py12 bg-gray-faint txt-s'>
-                    <ul>
-                        <li>Explore the raw
-                            <a class='link' href='https://icta-kenyaopendata.opendata.arcgis.com/datasets/national-boys-and-girls-enrollments-per-class-for-primary-school-education' target="_blank">data</a>
-                        </li>
+            <div class='flex-parent flex-parent--column viewport-third h-full-ml hmax-full bg-gray-light py18 px12' style="background-image: url(img/school.jpg);">
+                <div class='flex-child flex-child--grow px12 py12 scroll-auto color-gray-faint'>
+                    <h1 class='txt-h1 txt-bold mb6'>Kenya</h1>
+                    <h2 class='txt-l txt-bold mt18 mb12'>Education and Progress</h2>
+                    <p>Kenya is a center of East African economic prosperity, financial progress, and transportation. Despite a growing middle-class, they continue to see drops in student recidivism through the years of primary education (grades 1 to 8).
+                        This has the potential to create damaging effects on their growth regionally and globally.</p>
+                    <h2 class='txt-l txt-bold mt18 mb12'>About this Map</h2>
+                    <p>This map displays 2014 data on boys and girls enrolled in Kenyan primary school education (grades 1 to 8).</p>
+                    <ul class="txt-ul">
+                        <li>The map shows you circles for <span class="girls txt-kbd txt-bold">girls</span> and <span class="boys txt-kbd txt-bold">boys</span> sized according to the number enrolled per county.</li>
+                        <li>The <span class="txt-kbd txt-bold color-yellow">legend (lower right)</span> shows you the number of student per circle size.</li>
+                        <li>The <span class="txt-kbd txt-bold color-yellow">slider (lower left)</span> allows you to explore grades 1 through 8 (indicated by the Grade number).</li>
+                        <li><span class="txt-kbd txt-bold color-yellow">Hover over symbols</span> to view county name, numbers per grade, and trends per gender.</li>
+                    </ul>
+                    <hr class='txt-hr'>
+                    <ul class='px12 py6 txt-s color-gray-faint'>
                         <li>Map authored by
-                            <a class='link' href='https://thejoeblankenship.com/nmp_portfolio/' target="_blank">This guy...</a>
+                            <a class='link color-white' href='https://thejoeblankenship.com' target="_blank">Joe Blankenship</a>
+                        </li>
+                        <li>References
+                            <a class='link color-white' href='https://www.cia.gov/library/publications/the-world-factbook/geos/ke.html' target="_blank">here</a>
+                        </li>
+                        <li>Data
+                            <a class='link color-white' href='https://icta-kenyaopendata.opendata.arcgis.com/datasets/national-boys-and-girls-enrollments-per-class-for-primary-school-education' target="_blank">here</a>
                         </li>
                     </ul>
-                </footer>
+                </div>
             </div>
         </div>
         <div class='flex-child flex-child--grow viewport-twothirds viewport-full-ml'>
             <div id="map" class='viewport-twothirds viewport-full-ml'></div>
-            <!-- ui slider -->
-            <div id='slider' class='range w240 bg-white round-ml px12'>
-                <input type='range' />
-            </div>
-            <!-- legend -->
-            <div id='legend' class='bg-white round-ml px18 py12'>
-                <h3 class='txt-bold mb12 w-full mx-auto'>Legend Title</h3>
-                <div class='bg-blue h180 w240 mx-auto'></div>
-            </div>
         </div>
     </div>
+
+    <!-- ui slider -->
+    <div id='slider' class='range w240 bg-white round-ml px12 border border--2 border--red-on-hover
+'>
+        <input type='range' min="1" , max="8" , value="1" , step="1" />
+    </div>
+
+    <!-- temporal grade legend -->
+    <div id='grade' class='bg-white align-center round-mxl px6 border border--2'>
+        <p class='txt-bold pt6'>Grade:
+            <span class="color-red"></span>
+        </p>
+    </div>
+
+    <!-- legend -->
+    <div id='legend' class='bg-white round px12 py12 relative border border--2 border--red-on-hover'>
+        <h3 class='txt-bold mb12 w180'>Enrollment: <span class="girls">Girls</span> and <span class="boys">Boys</span> per County</h3>
+        <div class='legend-circles relative w180'>
+            <div class="legend-large border border--gray-light absolute"></div>
+            <div class="legend-small border border--gray-light absolute"></div>
+            <div class="legend-large-label txt-m absolute"></div>
+            <div class="legend-small-label txt-m absolute"></div>
+        </div>
+    </div>
+
+    <!-- ui info panel -->
+    <div id='info' class='py6 px12 bg-white border border--gray-light round absolute w240'>
+        <p>County:
+            <span></span>
+        </p>
+        <p class='girls'>Girls
+            <span></span>:
+            <span class='txt-l txt-bold'></span>
+        </p>
+        <p class='boys'>Boys
+            <span></span>:
+            <span class='txt-l txt-bold'></span>
+        </p>
+        <!-- Trend lines for info tool -->
+        <hr class='txt-hr'>
+        <p class='my6'>Trend: Grades 1 &ndash; 8</p>
+        <p class='mb6'>
+            <span class='girlspark'></span>
+        </p>
+        <p>
+            <span class='boyspark'></span>
+        </p>
+    </div>
+
 
     <!-- loading Assembly JS here -->
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.js"></script>
@@ -59,6 +109,10 @@
     <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
     <!-- loading Omnivore JS here -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <!-- loading JQuery here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- loading JQuery Sparklines here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
     <!-- loading custom JS here -->
     <script src='js/app.js'></script>
 
