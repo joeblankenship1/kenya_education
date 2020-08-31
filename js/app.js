@@ -2,14 +2,10 @@
 
     L.mapbox.accessToken = 'pk.eyJ1Ijoiam9lYmxhbmtlbnNoaXAxIiwiYSI6ImNqZGRjY2F3ZjAwNTMyd3FoOG83c3A4aWsifQ.bXiHMzyYHgFukGwVPUddAw';
 
-    var map = L.mapbox.map('map', 'mapbox.light', {
-        zoomSnap: .1,
-        center: [-.23, 37.8],
-        zoom: 7,
-        minZoom: 6,
-        maxZoom: 9,
-        maxBounds: L.latLngBounds([-6.22, 27.72], [5.76, 47.83])
-    });
+    var map = L.mapbox.map('map').setView([-.23, 37.8], 7);
+    L.control.layers({
+        'Mapbox Light': L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10').addTo(map)
+    }).addTo(map);
 
     // use omnivore to load the CSV data
     omnivore.csv('data/kenya_education_2014.csv')
